@@ -6,7 +6,7 @@ metadata:
     cert-manager.io/inject-ca-from: {{ default .Release.Namespace .Values.certs.certificate.namespace }}/{{ default "jaeger-operator-service-cert" .Values.certs.certificate.secretName }}
   labels:
 {{ include "jaeger-operator.labels" . | indent 4 }}
-  name: jaeger-operator-mutating-webhook-configuration
+  name: jaeger-operator-mutating-webhook-configuration-{{ .Release.Namespace }}
 webhooks:
 - admissionReviewVersions:
   - v1
